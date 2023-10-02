@@ -6,19 +6,22 @@ window.onload = () => {
     el.addEventListener("gps-camera-update-position", e => {
         if (!testEntityAdded) {
             alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
-            // Add a box to the north of the initial GPS position
-            const entity = document.createElement("a-box");
-            entity.setAttribute("scale", {
-                x: 20,
-                y: 20,
-                z: 20
+
+            const text = document.createElement("a-text");
+            const textScale = 100;
+            text.setAttribute("look-at", "[gps-new-camera]");
+            text.setAttribute("scale", {
+                x: textScale,
+                y: textScale,
+                z: textScale
             });
-            entity.setAttribute('material', { color: 'red' });
-            entity.setAttribute('gps-new-entity-place', {
+            text.setAttribute("value", "HAPPY BIRTHDAY!");
+            text.setAttribute("align", "center");
+            text.setAttribute('gps-new-entity-place', {
                 latitude: e.detail.position.latitude + 0.001,
                 longitude: e.detail.position.longitude
             });
-            document.querySelector("a-scene").appendChild(entity);
+            document.querySelector("a-scene").appendChild(text);
         }
         testEntityAdded = true;
     });
