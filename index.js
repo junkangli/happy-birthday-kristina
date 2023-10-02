@@ -15,7 +15,7 @@ window.onload = () => {
                 y: textScale,
                 z: textScale
             });
-            text.setAttribute("value", "HAPPY BIRTHDAY!");
+            text.setAttribute("value", "Kristina\nHAPPY BIRTHDAY!");
             text.setAttribute("align", "center");
             text.setAttribute('gps-new-entity-place', {
                 latitude: e.detail.position.latitude + 0.001,
